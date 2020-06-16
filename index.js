@@ -1,6 +1,7 @@
 'use strict';
 
 const XHTMLEntities = require('./xhtml');
+const requiredAcorn = equire("acorn");
 
 const hexNumber = /^[\da-fA-F]+$/;
 const decimalNumber = /^\d+$/;
@@ -103,7 +104,7 @@ function plugin(options, Parser) {
   const isIdentifierStart = acorn.isIdentifierStart;
   const isIdentifierChar = acorn.isIdentifierChar;
 
-  return class extends Parser {
+  return class extends requiredAcorn.Parser {
     // Expose actual `tokTypes` and `tokContexts` to other plugins.
     static get acornJsx() {
       return acornJsx;
